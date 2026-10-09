@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#00A8C4" />
+    <script>
+      (function () {
+        try {
+          var stored = localStorage.getItem('craton-theme')
+          var mode = 'light'
+          if (stored === 'dark' || stored === 'ember' || stored === 'vault') mode = 'dark'
+          else if (stored === 'light' || stored === 'craton' || stored === 'aurora') mode = 'light'
+          else if (window.matchMedia('(prefers-color-scheme: dark)').matches) mode = 'dark'
+          document.documentElement.dataset.mode = mode
+          document.documentElement.dataset.theme = mode
+          document.documentElement.style.colorScheme = mode
+          var meta = document.querySelector('meta[name="theme-color"]')
+          if (meta) meta.setAttribute('content', mode === 'dark' ? '#121A24' : '#00A8C4')
+        } catch (e) {}
+      })()
+    </script>
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta
+      name="description"
+      content="Craton invents and ships AI-enabled products for regulated work — starting with RAccelerator for EU MDR/IVDR device classification and GSPR gap assessment."
+    />
+    <meta name="robots" content="index,follow" />
+    <link rel="canonical" href="https://craton-web-v2.netlify.app/" />
+    <link rel="icon" type="image/webp" href="/brand/craton-logo.webp" />
+    <link rel="apple-touch-icon" href="/brand/craton-logo.webp" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Source+Sans+3:wght@400;500;600&family=Source+Serif+4:ital,wght@0,500;0,600;1,500;1,600&display=swap"
+      media="print"
+      data-deferred-css
+    />
+    <title>Craton Technologies | AI for EU MDR &amp; IVDR Regulatory Affairs</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        background: #f4f5f7;
+        color: #1e2a3a;
+      }
+      html[data-mode='dark'],
+      html[data-mode='dark'] body {
+        background: #0e1a24;
+        color: #f4f7fb;
+      }
+      @media (min-width: 1024px) {
+        html {
+          scrollbar-gutter: stable;
+        }
+      }
+      @font-face {
+        font-family: "Source Sans 3 Fallback";
+        src: local("Arial");
+        size-adjust: 100%;
+        ascent-override: 95%;
+        descent-override: 22%;
+        line-gap-override: 0%;
+      }
+      @font-face {
+        font-family: "Source Serif 4 Fallback";
+        src: local("Georgia");
+        size-adjust: 96%;
+        ascent-override: 92%;
+        descent-override: 22%;
+        line-gap-override: 0%;
+      }
+      #boot-hero {
+        position: fixed;
+        inset: 0;
+        z-index: 30;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        color: #1e2a3a;
+        background: #f4f5f7;
+        font-family: "Source Sans 3", "Source Sans 3 Fallback", system-ui, sans-serif;
+      }
+      html[data-mode='dark'] #boot-hero {
+        color: #f4f7fb;
+        background: #0e1a24;
+      }
+      #boot-hero .boot-media {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+      }
+      #boot-hero img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: max(100%, calc(100svh * 2400 / 1602));
+        height: auto;
+        max-width: none;
+        aspect-ratio: 2400 / 1602;
+        transform: translate(-50%, -50%);
+      }
+      #boot-hero .boot-shade {
+        position: absolute;
+        inset: -12%;
+        background:
+          radial-gradient(ellipse 62% 48% at 28% 42%, rgba(0, 168, 196, 0.16), transparent 68%),
+          #f4f5f7;
+        animation: boot-wash 16s ease-in-out infinite alternate;
+      }
+      html[data-mode='dark'] #boot-hero .boot-shade {
+        background:
+          radial-gradient(ellipse 62% 48% at 28% 42%, rgba(0, 168, 196, 0.32), transparent 68%),
+          #0e1a24;
+      }
+      @keyframes boot-wash {
+        from { transform: translate3d(-4%, -2%, 0); }
+        to { transform: translate3d(6%, 3%, 0); }
+      }
+      #boot-hero .boot-copy {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 7rem 1.25rem 5rem;
+        text-align: center;
+      }
+      #boot-hero .boot-kicker {
+        margin: 0;
+        color: #1e2a3a;
+        font-family: "Source Serif 4", "Source Serif 4 Fallback", Georgia, serif;
+        font-style: italic;
+        font-weight: 500;
+        font-size: clamp(1.05rem, 2.1vw, 1.35rem);
+      }
+      html[data-mode='dark'] #boot-hero .boot-kicker,
+      html[data-mode='dark'] #boot-hero h1,
+      html[data-mode='dark'] #boot-hero .boot-sub {
+        color: #f4f7fb;
+      }
+      #boot-hero h1 {
+        margin: 1rem 0 0;
+        max-width: 12em;
+        color: #1e2a3a;
+        font-family: "Source Serif 4", "Source Serif 4 Fallback", Georgia, serif;
+        font-size: clamp(2.15rem, 7.4vw, 5.5rem);
+        font-weight: 600;
+        line-height: 0.96;
+        letter-spacing: -0.03em;
+        text-transform: uppercase;
+        text-wrap: balance;
+      }
+      @media (min-width: 1024px) {
+        #boot-hero h1 {
+          font-size: clamp(2.6rem, 5.2vw, 5rem);
+        }
+      }
+      #boot-hero .boot-sub {
+        margin: 1.25rem 0 0;
+        max-width: 36ch;
+        color: #1e2a3a;
+        font-size: clamp(0.98rem, 1.7vw, 1.2rem);
+        font-weight: 500;
+        line-height: 1.5;
+      }
+      #boot-hero .boot-cta {
+        margin-top: 2rem;
+        display: inline-flex;
+        min-height: 3rem;
+        align-items: center;
+        border-radius: 2px;
+        background: #00a8c4;
+        padding: 0 1.75rem;
+        color: #1e2a3a;
+        font-size: 13px;
+        font-weight: 600;
+      }
+      #boot-hero .boot-foot {
+        position: relative;
+        z-index: 1;
+        height: 3.25rem;
+        border-top: 1px solid rgba(30, 42, 58, 0.12);
+      }
+      html[data-mode='dark'] #boot-hero .boot-foot {
+        border-top-color: rgba(255, 255, 255, 0.1);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="boot-hero" aria-hidden="true">
+      <div class="boot-media">
+        <div class="boot-shade"></div>
+      </div>
+      <div class="boot-copy">
+        <p class="boot-kicker">Bold ideas. Engineered forward.</p>
+        <h1>Craton Technologies</h1>
+        <p class="boot-sub">AI for EU MDR and IVDR technical documentation and GSPR gap assessment.</p>
+        <span class="boot-cta">Request a pilot</span>
+      </div>
+      <div class="boot-foot"></div>
+    </div>
+    <div id="root"></div>
+    <script src="/boot.js" defer></script>
+    <script type="module" src="/src/main.jsx"></script>
+    <!-- Same loader as the body of https://modelviewer.dev/ -->
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.3.1/model-viewer.min.js"></script>
+  </body>
+</html>
